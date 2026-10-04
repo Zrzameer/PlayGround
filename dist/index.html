@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Personal Agent — Android AI App</title>
+<meta name="description" content="Personal Agent: a real, installable Android AI assistant with chat, projects, terminal, browser and on-device builds.">
+<style>
+:root{--bg:#f7f9fd;--card:#fff;--ink:#101828;--muted:#667085;--brand:#0b57d0;--brand-d:#08419c;--ok:#067647;--okbg:#ecfdf3;--line:#e4e9f2;--radius:16px}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header.top{position:sticky;top:0;background:rgba(247,249,253,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:5}
+header.top .wrap{display:flex;align-items:center;gap:12px;padding:14px 20px}
+.logo{width:40px;height:40px;border-radius:12px;background:var(--brand);display:flex;align-items:center;justify-content:center;flex:none}
+.logo svg{width:24px;height:24px}
+.brand{font-weight:800;font-size:18px}.brand small{display:block;font-weight:500;color:var(--muted);font-size:12px}
+nav.m{margin-left:auto;display:flex;gap:16px;font-size:14px}nav.m a{color:var(--muted);text-decoration:none}nav.m a:hover{color:var(--brand)}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:48px 0 28px}
+.hero h1{font-size:clamp(30px,5vw,52px);line-height:1.05;margin:0 0 12px}
+.hero p.sub{color:var(--muted);font-size:17px;margin:0 0 22px}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.badge{background:var(--okbg);color:var(--ok);border:1px solid #a6f4c5;border-radius:999px;padding:4px 12px;font-size:13px;font-weight:600}
+.badge.info{background:#eff4ff;color:var(--brand);border-color:#b2ccff}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;font-weight:700;padding:13px 24px;border-radius:12px}
+.btn:hover{background:var(--brand-d)}.btn.ghost{background:#fff;color:var(--brand);border:1.5px solid var(--brand)}
+.note{font-size:13px;color:var(--muted);margin-top:12px}
+.phone{background:var(--ink);border-radius:36px;padding:14px;box-shadow:0 24px 60px rgba(11,87,208,.25)}
+.screen{background:#fff;border-radius:26px;overflow:hidden}
+.screen .bar{background:var(--brand);color:#fff;padding:14px 16px;font-weight:700;font-size:14px}
+.bubble{margin:12px;border-radius:14px;padding:10px 12px;font-size:13px;line-height:1.45}
+.bubble.you{background:#eff4ff;margin-left:44px}.bubble.agent{background:#f2f4f7;margin-right:44px}
+.typing{display:inline-block;background:#d7e3ff;border-radius:6px;padding:2px 8px;font-size:11px;color:var(--brand);font-weight:700}
+.tabs{display:flex;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:14px}
+.tabs div{flex:1;text-align:center;padding:10px 4px;font-size:12px;font-weight:600;color:var(--muted)}
+.tabs div.on{color:var(--brand);border-bottom:3px solid var(--brand)}
+section{padding:26px 0}h2{font-size:24px;margin:0 0 6px}p.lead{color:var(--muted);margin:0 0 18px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+.card h3{margin:0 0 6px;font-size:16px}.card p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
+.card .tag{display:inline-block;font-size:11px;font-weight:700;color:var(--ok);background:var(--okbg);border-radius:6px;padding:2px 8px;margin-bottom:8px}
+.card .tag.later{color:var(--brand);background:#eff4ff}
+ol.steps{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px 20px 20px 44px;margin:0;color:var(--ink)}
+ol.steps li{margin:8px 0;font-size:14px}ol.steps code{background:#f2f4f7;border-radius:6px;padding:1px 6px;font-size:13px}
+footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);font-size:13px}
+@media(max-width:820px){.hero{grid-template-columns:1fr;padding-top:28px}nav.m{display:none}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+<div class="logo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 4v5l-7 4-7-4V7l7-4z" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="10.5" r="1.6" fill="#fff"/></svg></div>
+<div class="brand">Personal Agent<small>com.personal.agent · v1.0.0-phase1 · ARM64 · Android 8+</small></div>
+<nav class="m"><a href="#features">Features</a><a href="#install">Install</a><a href="#roadmap">Roadmap</a></nav>
+</div></header>
+
+<div class="wrap">
+<div class="hero">
+<div>
+<div class="badges"><span class="badge">Phase 1 · built &amp; tested</span><span class="badge info">Real APK · no mocks</span><span class="badge info">No root · No Termux</span></div>
+<h1>Your personal AI agent, on your phone.</h1>
+<p class="sub">Real AI chat with streaming, isolated project workspaces and secure provider keys — in a clean installable Android app. Agent engine, terminal, browser and on-device APK builds ship in the next phases.</p>
+<div class="cta">
+<a class="btn" href="./personal-agent-debug.apk" download>Download debug APK</a>
+<a class="btn ghost" href="#install">How to install</a>
+</div>
+<p class="note">Debug build · ~17&nbsp;MB · package <b>com.personal.agent</b> · minSdk 26 (Android 8) · targetSdk 34 · signed with debug key. Unit tests pass. Enable “Install unknown apps” for your browser when sideloading.</p>
+</div>
+<div class="phone"><div class="screen">
+<div class="bar">Personal Agent · OpenAI</div>
+<div class="bubble you">Explain this crash log from my Gradle build…</div>
+<div class="bubble agent"><span class="typing">AGENT · STREAMING</span><br>The failure is in <b>:app:compileDebugKotlin</b> — your Compose compiler (1.5.13) expects Kotlin 1.9.23. Bump Kotlin to 1.9.24 and the compiler to 1.5.14, then rebuild.</div>
+<div class="bubble you">Save that fix to my project notes.</div>
+<div class="tabs"><div class="on">Chat</div><div>Projects</div><div>Settings</div></div>
+</div></div>
+</div>
+
+<section id="features">
+<h2>What works today (Phase 1)</h2>
+<p class="lead">Every button below maps to implemented, compiled and tested code — nothing fake.</p>
+<div class="grid">
+<div class="card"><span class="tag">DONE</span><h3>AI chat, streaming</h3><p>OpenAI-compatible chat-completions with SSE streaming, copy / share, conversation history in Room with search, and live status (Idle → Thinking → Streaming → Completed / Error).</p></div>
+<div class="card"><span class="tag">DONE</span><h3>Provider abstraction</h3><p>OpenAI, OpenRouter, Gemini and Anthropic (OpenAI-compatible endpoints) plus a custom URL. Model and base URL configurable per provider.</p></div>
+<div class="card"><span class="tag">DONE</span><h3>Secure key storage</h3><p>API keys live only in EncryptedSharedPreferences. Never hardcoded, never logged, removable from Settings at any time.</p></div>
+<div class="card"><span class="tag">DONE</span><h3>Project workspaces</h3><p>Isolated app-private workspaces with safe create / delete and Zip-Slip-guarded ZIP import. Each project ships agent-context scaffolding.</p></div>
+<div class="card"><span class="tag">DONE</span><h3>Modern Android UI</h3><p>Material 3 bottom navigation — Chat, Projects, Settings — with permission minimization (Internet only at runtime; mic / images / notifications requested on use).</p></div>
+<div class="card"><span class="tag">DONE</span><h3>Honest architecture</h3><p>Modular packages (ai · data · security · projects · ui) ready for the agent engine, terminal, browser and build backends — without placeholder claims.</p></div>
+</div>
+</section>
+
+<section id="install">
+<h2>Install &amp; first run</h2>
+<ol class="steps">
+<li>Download the <b>debug APK</b> above onto your Android phone (ARM64, Android 8+).</li>
+<li>Open it and allow <b>Install unknown apps</b> for your browser when asked.</li>
+<li>Launch <b>Personal Agent</b>, go to <code>Settings → Provider</code>, pick a provider and paste your API key, then <code>Save securely</code>.</li>
+<li>Return to <b>Chat</b> and send your first message — the status line shows live progress.</li>
+<li>Create an isolated workspace under <b>Projects</b> for anything the agent should work on.</li>
+</ol>
+</section>
+
+<section id="roadmap">
+<h2>Roadmap</h2>
+<p class="lead">Shipped incrementally, compiling and launchable after every phase.</p>
+<div class="grid">
+<div class="card"><span class="tag later">PHASE 2</span><h3>Agent engine + terminal</h3><p>Planner / executor / tool router with explicit permission boundaries, plus the in-app terminal on the sandboxed runtime.</p></div>
+<div class="card"><span class="tag later">PHASE 3</span><h3>Importer + tool manager</h3><p>GitHub / ZIP importer with real compatibility scanning, on-demand runtimes and storage management.</p></div>
+<div class="card"><span class="tag later">PHASE 4–6</span><h3>Browser · builds · release</h3><p>Agent browser, coding agent, “build me an APK” manager with remote-build backend, voice / vision / memory, Play Store hardening and billing flags.</p></div>
+</div>
+</section>
+</div>
+
+<footer><div class="wrap">Personal Agent · built in phases from the Master Build Prompt · Phase 1 deliverable: installable APK + this preview page. Keys are yours — the app never embeds secrets.</div></footer>
+</body>
+</html>
